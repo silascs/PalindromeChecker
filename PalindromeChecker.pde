@@ -16,7 +16,10 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  if(reverse(word).equals(word))
+  String testString = noSpaces(word);
+  testString = onlyLetters(testString);
+  testString = lowerCase(testString);
+  if(reverse(testString).equals(testString))
     return true;
   else
     return false;
@@ -32,4 +35,26 @@ public String reverse(String str)
     return sNew;
 }
 
+public String lowerCase (String sWord)
+{
+  return sWord.toLowerCase();
+}
 
+public String onlyLetters (String sWord)
+{
+  String letters = new String();
+  for (int i = 0; i < sWord.length(); i ++)
+  {
+    if(Character.isLetter(sWord.charAt(i)))
+    {
+      letters = letters + sWord.charAt(i);
+    }
+  }
+  return letters;
+}
+
+public String noSpaces (String sWord)
+{
+  sWord = sWord.replace(" ", "");
+  return sWord;
+}
